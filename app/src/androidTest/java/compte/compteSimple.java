@@ -14,7 +14,7 @@ public class compteSimple extends compte{
     public void retirer(float mt){
         if(mt<=solde + decouvert){
             solde -=mt;
-            getTransactions().add(new operation(new Date(),"retrait",mt));
+            getTransactions().add(new retrait(new Date(),mt));
 
         }
     }

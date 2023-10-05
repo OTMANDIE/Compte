@@ -1,0 +1,7 @@
+Operation de versement a 2023-10-05 03:58:34 de montant 5000.0DH.
+Operation de retrait a 2023-10-05 03:58:34 de montant 4000.0DH.
+Operation de versement a 2023-10-05 03:58:34 de montant 4000.0DH.
+Operation de versement a Thu Oct 05 04:12:46 WEST 2023 de montant 5000.0 dans le compte compteEpargne
+Operation de retrait a Thu Oct 05 04:12:46 WEST 2023 de montant 4000.0 dans le compte compteEpargne
+Operation de versement a Thu Oct 05 04:13:41 WEST 2023 de montant 5000.0 dans le compte compteEpargne
+Operation de retrait a Thu Oct 05 04:13:41 WEST 2023 de montant 4000.0 dans le compte compteEpargne

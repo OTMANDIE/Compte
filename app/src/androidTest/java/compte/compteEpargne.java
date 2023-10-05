@@ -8,7 +8,7 @@ public class compteEpargne extends compte{
         this.taux = taux;
     }
 
-    public void calculInterest(float taux){
+    public void calculInteret(float taux){
         solde *= (1+taux/100);
     }
 }

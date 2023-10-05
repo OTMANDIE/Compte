@@ -2,7 +2,7 @@ package compte;
 
 import java.util.Date;
 
-public class operation {
+public abstract class operation {
     private int nombreOperation;
     private Date date;
     private String operation;
