@@ -66,7 +66,8 @@ public abstract class compte {
     }
 
     public void operationToTextFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Administrator\\AndroidStudioProjects\\Compte\\app\\src\\androidTest\\java\\compte\\operations.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Administrator\\AndroidStudioProjects\\Compte\\app\\src\\androidTest\\java\\compte\\operations.txt",
+                true))) {
             for (operation op : operations) {
                 String operationType = op instanceof retrait ? "retrait" : "versement";
                 String message = "Operation de " + operationType + " a " + op.getDate() + " de montant " + op.getMt() + " dans le compte " + this.getClass().getSimpleName();
@@ -87,6 +88,26 @@ public abstract class compte {
         for (versement versement : versements) {
             System.out.println(" " + versement.getNombreOperation()+" "+versement.getDate() +" "+ versement.getOperation()+" "+ versement.getMt());
         }
+    }
+
+    public double sommeOfVersementAmounts() {
+        double sum = 0;
+        for (operation op : operations) {
+            if (op instanceof versement) {
+                sum += op.getMt();
+            }
+        }
+        return sum;
+    }
+
+    public double sommeOfRetraitAmounts() {
+        double sum = 0;
+        for (operation op : operations) {
+            if (op instanceof retrait) {
+                sum += op.getMt();
+            }
+        }
+        return sum;
     }
     public float getSolde() {
         return solde;
