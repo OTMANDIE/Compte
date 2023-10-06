@@ -33,7 +33,7 @@ public abstract class compte {
     public void verser(float mt){
         if (mt > 0) {
             solde += mt;
-            operations.add(new versement(new Date(),mt));
+            versements.add(new versement(new Date(),mt));
         }
     }
 
@@ -41,7 +41,7 @@ public abstract class compte {
         if (mt>=solde){ throw new soldeInsuffisant("Votre solde is insuffisant");}
             if (mt<0){ throw new mtInvalide("Le montant doit etre positif");}
             solde = solde - mt;
-            operations.add(new retrait(new Date(),mt));
+            retraits.add(new retrait(new Date(),mt));
     }
 
     public void transferer(compte destinationCompte, float mt) throws Exception {
@@ -59,10 +59,9 @@ public abstract class compte {
         return ("solde=" + solde);
     }
 
-    public void stringTransactions(){
-        for (operation operation : operations) {
-            System.out.println(" " + operation.getNombreOperation()+" "+operation.getDate() +" "+ operation.getOperation()+" "+ operation.getMt());
-        }
+    public void stringOperations(){
+        this.stringRetrait();
+        this.stringRetrait();
     }
 
     public void operationToTextFile() {
@@ -81,31 +80,27 @@ public abstract class compte {
     }
     public void stringRetrait(){
         for (retrait retrait : retraits) {
-            System.out.println(" " + retrait.getNombreOperation()+" "+retrait.getDate() +" "+ retrait.getOperation()+" "+ retrait.getMt());
+            System.out.println("Nombre operation: " + retrait.getNombreOperation()+" Date: "+retrait.getDate() +" "+ retrait.getOperation()+" Montant "+ retrait.getMt());
         }
     }
     public void stringVersement(){
         for (versement versement : versements) {
-            System.out.println(" " + versement.getNombreOperation()+" "+versement.getDate() +" "+ versement.getOperation()+" "+ versement.getMt());
+            System.out.println("Nombre operation: " + versement.getNombreOperation()+" Date: "+versement.getDate() +" "+ versement.getOperation()+" Montant "+ versement.getMt());
         }
     }
 
     public double sommeOfVersementAmounts() {
         double sum = 0;
-        for (operation op : operations) {
-            if (op instanceof versement) {
+        for (versement op : versements) {
                 sum += op.getMt();
-            }
         }
         return sum;
     }
 
     public double sommeOfRetraitAmounts() {
         double sum = 0;
-        for (operation op : operations) {
-            if (op instanceof retrait) {
-                sum += op.getMt();
-            }
+        for (retrait op : retraits) {
+            sum += op.getMt();
         }
         return sum;
     }

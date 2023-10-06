@@ -7,6 +7,6 @@ public class compteRun {
         c1.verser(5000);
         c1.transferer(c2,4000);
         c1.verser(6000);
-        c1.operationToTextFile();
+        c1.stringTransactions();
     }
 }
